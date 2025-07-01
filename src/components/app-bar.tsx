@@ -82,7 +82,7 @@ function AppBar({ onUpdatePreview }: AppBarProps) {
     }
 
     return (
-        <header className="px-6 py-2 border w-[100%] shadow-sm sticky top-0 z-50  bg-background dark:bg-input/30">
+        <header className="px-6 py-2 border w-[100%] shadow-sm sticky top-0 z-50 bg-background">
             <div className="flex justify-between items-center py-4">
                 <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
