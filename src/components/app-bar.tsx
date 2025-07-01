@@ -96,7 +96,7 @@ function AppBar({ onUpdatePreview }: AppBarProps) {
                 <div className="flex items-center space-x-4">
                     {onUpdatePreview && (
                         <Button variant="outline" size="icon" onClick={onUpdatePreview}>
-                            <RefreshCw className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                            <RefreshCw className="text-foreground h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:-rotate-90" />
                             <span className="sr-only">Refresh preview</span>
                         </Button>
                     )}
