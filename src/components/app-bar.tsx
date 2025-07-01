@@ -15,9 +15,10 @@ import {pdf} from "@react-pdf/renderer";
 
 interface AppBarProps {
     onUpdatePreview?: () => void;
+    isMobile?: boolean;
 }
 
-function AppBar({ onUpdatePreview }: AppBarProps) {
+function AppBar({ onUpdatePreview, isMobile }: AppBarProps) {
     const {cvData, updateCvData, removeAll} = useCv();
 
     function handleLoad(e: { preventDefault: () => void; }) {
@@ -83,18 +84,20 @@ function AppBar({ onUpdatePreview }: AppBarProps) {
 
     return (
         <header className="px-6 py-2 border w-[100%] shadow-sm sticky top-0 z-50 bg-background">
-            <div className="flex justify-between items-center py-4">
+            <div className="flex justify-between items-center space-x-4 py-4">
                 <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                         <FileText className="text-background" size={20}/>
                     </div>
-                    <div className="flex flex-col justify-start items-start ">
-                        <h1 className="text-xl font-bold">CV Generator</h1>
-                        <p className="text-xs">Professional Resume Builder</p>
-                    </div>
+                    {!isMobile && (
+                        <div className="flex flex-col justify-start items-start ">
+                            <h1 className="text-xl font-bold">CV Generator</h1>
+                            <p className="text-xs">Professional Resume Builder</p>
+                        </div>
+                    )}
                 </div>
                 <div className="flex items-center space-x-4">
-                    {onUpdatePreview && (
+                    {onUpdatePreview && !isMobile && (
                         <Button variant="outline" size="icon" onClick={onUpdatePreview}>
                             <RefreshCw className="text-foreground h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:-rotate-90" />
                             <span className="sr-only">Refresh preview</span>
